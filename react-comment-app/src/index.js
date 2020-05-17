@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom';  //index.js  入口文件 负责缝合关系
+import CommentApp from './CommentApp';
+// css in js -> webpack 
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
+// jsx -> 在js中写 xml
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+    // react 组件 的世界 
+    <CommentApp/>,
+    // 真实的dom 
+    document.getElementById('root')
+)

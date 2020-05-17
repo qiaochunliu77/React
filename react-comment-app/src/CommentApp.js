@@ -1,4 +1,4 @@
-import React ,{Component }from 'react'; //按需加载 解构
+import React ,{ Component }from 'react'; //按需加载 解构
 import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 
@@ -33,14 +33,14 @@ class CommentApp extends Component {
         )
     }
     handleSubmitComment(comment){
-        let {comments} = this.state;
-        comments.unshift(comment)
-        this.setState({
-            comments:comments
-        })
-        // this.state({
-        //     comments:[comment, ... this.state.comments]
+        // let {comments} = this.state; //old state
+        // comments.unshift(comment)
+        // this.setState({
+        //     comments:comments
         // })
+        this.setState({
+            comments:[comment,...this.state.comments] //展开运算符
+        })
     }
 }
 export default CommentApp

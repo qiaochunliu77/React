@@ -15,11 +15,16 @@ class CommentInput extends Component {
       content: ''
     }
   }
-
-
-  componentWillMount () {
+  // 不同的生命周期函数
+  componentWillMount () { // 即将挂载, 
     this._loadUsername()
   }
+
+
+  componentDidMount () { // mount 挂载
+    this.textarea.focus()  // ?
+  }
+
 
 
   _loadUsername () {
@@ -35,7 +40,7 @@ class CommentInput extends Component {
   }
   
   handleUsernameBlur (event) {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this._saveUsername(event.target.value) // 私有方法
   }
 
@@ -48,6 +53,13 @@ class CommentInput extends Component {
   }
 
 
+  handleContentChange (event) {
+    this.setState({
+      content: event.target.value
+    })
+  }
+
+
   handleSubmit () {
     if (this.props.onSubmit) { // 不能一根筋
       this.props.onSubmit({ //健壮性
@@ -56,6 +68,9 @@ class CommentInput extends Component {
         createdTime: +new Date()
       })
     }
+
+
+    this.setState({ content: '' })
   }
   render () {
     return (
@@ -67,6 +82,16 @@ class CommentInput extends Component {
               value={this.state.username}
               onBlur={this.handleUsernameBlur.bind(this)}
               onChange={this.handleUsernameChange.bind(this)} />
+          </div>
+        </div>
+        <div className='comment-field'>
+          <span className='comment-field-name'>评论内容：</span>
+          <div className='comment-field-input'>
+            <textarea
+              // react ref  html id  dom 
+              ref={(textarea) => this.textarea = textarea}
+              value={this.state.content}
+              onChange={this.handleContentChange.bind(this)} />
           </div>
         </div>
         <div className='comment-field-button'>

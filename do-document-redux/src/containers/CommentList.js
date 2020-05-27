@@ -17,6 +17,14 @@ const mapStateToProps = (state) => {
         comments: state.comments
     }
 }
+// const mapDispatchToprops = (dispatch) => {
+//     return {
+//         onDeleteComment : (commentIndex) => {
+//             dispatch(deleteComment(commentIndex))
+//         }
+//     }
+// }
 export default connect(
-    mapStateToProps
+    mapStateToProps,
+    // mapDispatchToprops
 )(CommentListContainer)

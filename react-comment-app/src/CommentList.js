@@ -1,24 +1,17 @@
-// CommentList.js
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Comment from './Comment'
 
-class CommentList extends Component {
+class ComponentList extends Component {
   render() {
-    const comments = [
-      {username: 'Jerry', content: 'Hello'},
-      {username: 'Tomy', content: 'World'},
-      {username: 'Lucy', content: 'Good'}
-    ]
-
+    console.log(this.props, '++++')
+    let { comments } = this.props
     return (
-      <div>{comments.map((comment, i) => {
-        return (
-          <div key={i}>
-            {comment.username}：{comment.content}
-          </div>
-        )
-      })}</div>
+      <div>
+            {comments.map((comment, i) => <Comment comment={comment} key={i} />)}
+      </div>
     )
   }
 }
 
-export default CommentList
+
+export default ComponentList;

@@ -43,3 +43,40 @@ state 是让组件控制自己的状态，props 是让外部对组件自己进�
 ## demo
 - 父组件通过props给子组件传入一个回调(onSubmit) 
 - 子组件通过setstate将最新的数据传给父组件 并由父组件渲染
+
+## 状态提升
+  当某个状态被多个组件依赖或者影响的时候，就把该状态提升到这些组件的最近公共父组件中去管理，用 props 传递数据或者函数来管理这种依赖或着影响的行为。
+
+## 生命周期
+- React.js 将组件渲染，并且构造 DOM 元素然后塞入页面的过程称为组件的**挂载**
+- 提供了两个方法：
+    -> constructor()                //组件初始化 如state
+    -> componentWillMount()
+    -> render()
+    -> componentDidMount()          // 然后构造 DOM 元素插入页面
+    -> componentWillUnmount()
+    -> 删除
+
+- 组件生命周期
+    1. componentWillMount：组件挂载开始之前，也就是在组件调用 render 方法之前调用。
+      一些组件启动的动作，包括像 Ajax 数据的拉取操作、一些定时器的启动等。
+    2. componentDidMount：组件挂载完成以后，也就是 DOM 元素已经插入页面后调用。
+      组件从页面上销毁的时候，有时候需要一些数据的清理，例如定时器的清理，
+    3. componentWillUnmount：组件对应的 DOM 元素从页面中删除之前调用。
+
+    4. shouldComponentUpdate(nextProps, nextState)：你可以通过这个方法控制组件是否重新渲染。如果返回 false 组件就不会重新渲染。这个生命周期在 React.js 性能优化上非常有用。
+    5. componentWillReceiveProps(nextProps)：组件从父组件接收到新的 props 之前调用。
+    6. componentWillUpdate()：组件开始重新渲染之前调用。
+    7.componentDidUpdate()：组件重新渲染并且把更改变更到真实的 DOM 以后调用。
+
+## dom 
+1. ref :能不用 ref 就不用
+  任意代表 HTML 元素标签加上 ref 从而获取到它 DOM 元素然后调用 DOM API。
+2. props.children
+3.  dangerouslySetInnerHTML={{__html: this.state.content}}
+  这样我们就可以动态渲染元素的 innerHTML 结构了
+4. style  驼峰式命名
+  <h1 style={{fontSize: '12px', color: 'red'}}>React.js 小书</h1>
+  
+## PropTypes
+  

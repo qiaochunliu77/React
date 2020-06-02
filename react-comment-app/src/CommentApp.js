@@ -1,4 +1,4 @@
-import React ,{ Component }from 'react'; //按需加载 解构
+import React, { Component } from 'react'; //按需加载 解构
 import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 
@@ -7,40 +7,48 @@ class CommentApp extends Component {
     constructor() {
         super();
         this.state = {
-            comments:[{
-                username:'lqc',
-                content:'plmm'
-            },{
-                username:'zzh',
-                content:'pl'
-            }]
+            comments: []
         }
     }
-    render(){ //接口
+
+    componentWillMount() {
+        this._loadComments()
+    }
+
+    _loadComments() {
+        let comments = localStorage.getItem('comments')
+        if (comments) {
+            comments = JSON.parse(comments)
+            this.setState({ comments })
+        }
+    }
+    handleDeleteComment (index) {
+        console.log(index)
+      }
+    render() {
         const { comments } = this.state
-        return(
+        return (
             <div className='wrapper'>
-                {/* onSubmit事件监听 */}
-                {/* 数据属性 state props 
-                react 组件 render()是必须的 页面输出
-                state 内部数据
-                props 外部数据
-                */}
-                <CommentInput onSubmit={this.handleSubmitComment.bind(this)}/>
-                {/* 伸手向父组件要什么  静态页面 props 显示评论列表*/}
-                <CommentList comments = { comments }/>
-            </div>
+            <CommentInput onSubmit={this.handleSubmitComment.bind(this)} />
+            <CommentList
+              comments={this.state.comments}
+              onDeleteComment={this.handleDeleteComment.bind(this)} />
+          </div>
         )
     }
-    handleSubmitComment(comment){
-        // let {comments} = this.state; //old state
-        // comments.unshift(comment)
-        // this.setState({
-        //     comments:comments
-        // })
-        this.setState({
-            comments:[comment,...this.state.comments] //展开运算符
-        })
-    }
+    _saveComments (comments) {
+        localStorage.setItem('comments', JSON.stringify(comments))
+      }
+    
+      handleSubmitComment (comment) {
+        if (!comment) return
+        if (!comment.username) return alert('请输入用户名')
+        if (!comment.content) return alert('请输入评论内容')
+        const comments = this.state.comments
+        this._saveComments(comments)
+        comments.push(comment)
+        this.setState({ comments })
+        
+      }
 }
 export default CommentApp

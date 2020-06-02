@@ -31,7 +31,6 @@ class Main extends React.Component {
     fetch(`http://api.react.beer/v2/search?q=${searchTerm}&type=beer`) // api 地址
       .then(data => data.json())
       .then(data => {
-        
         const beers = data.data || [];
         this.setState({
           loading: false,

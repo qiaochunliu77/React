@@ -46,7 +46,7 @@ const postAction = {
 // 分了 login posts
 // 接受一个
 // combineReducers 集合
-const rootReducer = combineReducers({
+const rootReducer = combineReducers({ 
   login: loginReducer,
   posts: postsReducer
 })

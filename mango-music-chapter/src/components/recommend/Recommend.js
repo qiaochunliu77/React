@@ -119,7 +119,7 @@ class Recommend extends React.Component {
         <Scroll
           refresh={this.state.refreshScroll}
           onScroll={(e) => {
-            console.log(e)
+            console.log('e',e)
             forceCheck()
           }}
         >

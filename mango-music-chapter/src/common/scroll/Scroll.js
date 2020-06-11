@@ -24,7 +24,7 @@ class Scroll extends React.Component {
     }
   }
   render() {
-    console.log(this.props.children);
+    console.log('this.props.children',this.props.children);
     return (<div className="scroll-view" ref="scrollView">
       {this.props.children }
     </div>)

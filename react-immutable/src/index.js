@@ -5,6 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // 可变
+// 在函数式编程中 可变是万恶之源
 let obj = {}
 let obj1 = obj;
 let obj2 = obj1;

@@ -23,7 +23,7 @@ class App extends React.Component {
       },
       age: 123
     })
-  }
+  } 
 
 
   componentDidMount() {
@@ -33,6 +33,7 @@ class App extends React.Component {
       const posts = this.state.posts.slice(0);
       // setState 更新数据了，但是页面他不重新渲染
       const newUserInfo = this.state.userInfo.set('name', 'lilei')
+      // 可变的代码
       posts.push({ contet: 2 });
       const loginInfo = {
         ...this.state.loginInfo,

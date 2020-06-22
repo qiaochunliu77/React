@@ -76,6 +76,7 @@ function Login() {
   return (
     <div>
       Login
+      {/* Consumer内部是一个函数 里面return你要渲染的东西 */}
       {/* <Consumer>
         {
           (obj) => {
@@ -134,14 +135,10 @@ function Footer() {
   return 'footer';
 }
 function App() {
-  // this.state = {}
-  // let res = [ { theme: 'res' }, function setTheme() {}]
-  // let [s, set] = res;
   // Provider 提供，
   // Consumer 消费
   const [state, setTheme] = useState({ theme: 'red' });
   console.log(state);
-  // {}
   let obj = {
     state,
     setTheme,

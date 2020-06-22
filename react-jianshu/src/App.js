@@ -4,7 +4,6 @@ import ImmutableComponent from './components/common';
 import { BrowserRouter, Route  } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store/index';
-import logo from './logo.svg';
 import Header from './components/Header';
 import Home from './pages/home/index';
 import Detail from './pages/detail/index';

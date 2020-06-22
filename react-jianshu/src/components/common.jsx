@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {is} from 'immutable'
+// state没有变化无需重新渲染 return true/false
 class ImmutableComponent extends Component {
     state = {  }
+    // 新的 老的 
     shouldComponentUpdate(nextprops,nextState) {
         const thisProps = this.props || {};
         const thisState = this.state || {};

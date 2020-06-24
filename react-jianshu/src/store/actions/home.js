@@ -12,9 +12,11 @@ export const getHomeList = {
     type: GET_HOME_LIST,
     homeList: [0,1,2,3]
   }
+// 没有redux-thunk
 // dispatch({
 
 // })
+// 加了中间件thunk
 // dispatch(function() {
 
-// })
+// }) 

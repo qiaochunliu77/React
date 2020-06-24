@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getHomeList } from '../../store/actions/home';
+import { getIn } from 'immutable'
 class Home extends Component {
   componentDidMount() {
     this.props.fetchHomeList();
   }
   state = { }
   render() { 
+    console.log(this.props.homeList.size )
     return ( <div>
       home
-      length: { this.props.homeList.length }
+      length: { this.props.homeList.size }
     </div> );
   }
 }
@@ -18,6 +20,7 @@ class Home extends Component {
 // state 整个state 但我只要home
 // mapStateToProps 过滤一下 返回结果 都会由connect传给组件的props
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     homeList: state.getIn(['home', 'homeList'])
   }
@@ -35,4 +38,4 @@ const mapDispatchToProps = (dispatch) => {
 // 连接桥
 //  provider 是全局的 功能
 // 规定 获取redux 里面的数据 mapStateToProps的返回值 connect 返回值放到home
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapDispatchToProps, mapStateToProps)(Home);

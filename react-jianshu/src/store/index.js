@@ -5,7 +5,7 @@ import { createStore,
 import thunk from 'redux-thunk';
 import HomeReducer from './reducers/home/index';
 
-function rootReducer(state = defaultRootState,action) {}
+// function rootReducer(state = defaultRootState,action) {}
 const rootReducer = combineReducers({
   home: HomeReducer
 })

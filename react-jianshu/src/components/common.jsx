@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {is} from 'immutable'
+
+// 通用 优化
 // state没有变化无需重新渲染 return true/false
+
 class ImmutableComponent extends Component {
     state = {  }
     // 新的 老的 

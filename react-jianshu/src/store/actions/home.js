@@ -8,10 +8,11 @@
 // redux-thunk: 函数
 
 import { GET_HOME_LIST } from '../constants';
-export const getHomeList = {
+
+export const homeListActionCreator = (homeList) => ({
     type: GET_HOME_LIST,
-    homeList: [0,1,2,3]
-  }
+    homeList
+  })
 // 没有redux-thunk
 // dispatch({
 

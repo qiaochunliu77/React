@@ -110,10 +110,11 @@ class App extends Component {
         </Tabs>
 
         <Tabs onChange={this.handleTypeChange}
-          type="card" tabBarGutter={0}
+          type="card" 
+          tabBarGutter={0}
         >
           {
-            type.map((item, index) => {
+            type.map((item, index) => {  
               return (
                 <TabPane
                   tab={item}

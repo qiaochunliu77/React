@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.typeChangeBar {
+  color: #fa8919;
+}
+h1 {
+  color: #404040;
+    font-size: 29px;
+    font-weight: 400;
+    line-height: 40px;
+}

@@ -1,0 +1,42 @@
+body{
+  font-size: 16px;
+}
+.app{
+  width: 100px;
+  height: 10px;
+  background-color: #000;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
+.header{
+  padding: 15px 30px 28px 30px;
+  display: flex;
+  align-items: center;
+}
+.header h2{
+  width: 137px;
+  height: 37px;
+  margin-right: 20px;
+}
+.header input{
+  flex: 1;
+  height: 56px;
+  outline: none;
+  border: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+.header button{
+  width: 73px;
+  height: 41px;
+  margin-left: 19px;
+  border: none;
+  border: 1px solid red;
+  color: red;
+  background-color: #fff;
+  border-radius: 2px;
+}

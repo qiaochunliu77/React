@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+// import './App.less'
 import TabPaner from './page/TabPaner'
 import 'antd/dist/antd.css';
 import { Tabs } from 'antd';
@@ -61,7 +62,7 @@ class App extends Component {
     }
   }
   handle1 = () => {
-    tClickhis.setState({
+    this.setState({
       fontColor: false
     })
     console.log(this.state.fontColor, '????????????????????')

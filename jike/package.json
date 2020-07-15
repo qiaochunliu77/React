@@ -10,7 +10,7 @@
     "axios": "^0.19.2",
     "customize-cra": "^1.0.0",
     "less": "^3.11.3",
-    "less-loader": "^6.2.0",
+    "less-loader": "^5.0.0",
     "mockjs": "^1.1.0",
     "react": "^16.13.1",
     "react-app-rewired": "^2.1.6",

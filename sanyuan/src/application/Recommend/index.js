@@ -12,7 +12,6 @@ function Recommend(props) {
         if(!recommendList.length) {
             getRecommendListDataDispatch();
         }
-
     },[])
 
     return (
@@ -21,7 +20,7 @@ function Recommend(props) {
         </React.Fragment>
     )
 }
-// 获取父组件的store
+// 把当前 Redux store state 映射到展示组件的 props 中。
 const mapStateToProps = (state) => ({
     recommendList: state.recommend.recommendList,
     banners:state.recommend.banners,
@@ -35,7 +34,6 @@ const mapDispatchToProps = (dispatch) => {
         getBannersDataDispatch(){
             dispatch(actionTypes.getBanners())
         }
-        
     }
 }
 export default  connect(mapStateToProps,mapDispatchToProps)(memo(Recommend))

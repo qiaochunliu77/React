@@ -22,7 +22,7 @@ function Home(props) {
               <TabItem><span>排行榜</span></TabItem>
           </NavLink>
       </Tab>
-    {renderRoutes(route.routes)}
+      {renderRoutes(route.routes)}
     </>
   )
 }

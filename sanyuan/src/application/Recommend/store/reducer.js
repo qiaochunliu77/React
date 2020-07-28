@@ -5,6 +5,7 @@ const defaultState = {
     banners: [],
     enterLoading: true
 }
+// 返回数据
 export default (state = defaultState, action) => {
     switch (action.type) {
         case actionTypes.CHANGE_BANNER:

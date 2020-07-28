@@ -9,6 +9,7 @@ import Login from './Login';
 function App() {
   return (
     <BrowserRouter>
+      header
       <Route path='/login' component={Login} />
       <PrivateRoute path='/collect' component={Collect} />
     </BrowserRouter>

@@ -1,0 +1,21 @@
+.slide-enter {
+    transform: translateX(100%);
+  }
+  .slide-enter-active {
+    transform: translateX(0%);
+    transition: transform 3000ms ease-out;
+  }
+  .slide-exit {
+    transform: translateX(0%);
+    transition: transform 3000ms ease-out;
+  }
+  
+  .slide-exit-active {
+    transform: translateX(-100%);
+  }
+  /* .main {
+    width: 500px;
+    height: 500px;
+    background-color: red;
+  } */
+  

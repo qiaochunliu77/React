@@ -1,0 +1,25 @@
+.msg-enter {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .msg-enter-active,
+  .msg-enter-done {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .msg-exit {
+    opacity: 1;
+  }
+  .msg-exit-active,
+  .msg-exit-done {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
+  }
+  .msg-box {
+    width: 300px;
+    height: 300px;
+    background-color: red;
+  }
+  

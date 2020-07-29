@@ -1,0 +1,41 @@
+.msg-enter {
+  opacity: 0;
+  transform: scale(0.8);
+}
+.msg-enter-active, .msg-enter-done {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 2000ms;
+}
+
+.msg-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+/* // ms */
+.msg-exit-active, .msg-exit-done {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 2000ms;
+}
+.box {
+  width: 30px;height: 30px;
+  background-color: red;
+}
+.tab-wrap-enter{
+  opacity: 0.01;
+}
+.tab-wrap-active{
+  opacity: 1;
+  transform: all 500ms;
+}
+.tab-wrap-exit{
+  transform: rotate(0);
+
+}
+.tab-wrap-exit-active{
+  transform: rotate(0deg);
+  transform-origin: top right;
+  transform:translate(0,-100px);
+  transition: all 500ms;
+}

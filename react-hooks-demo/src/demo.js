@@ -1,59 +1,53 @@
-import React,{memo, useState} from 'react';
+// 数据在hooks里面怎么走的
+// useState -> context轻量 | reducer重 | useReducer | mobx | 
+import React,{useReducer} from 'react';
 
-export const MyComponent =() => {
-    const [userInfo, setUserInfo ] = useState({
-        name:'John',
+ const userInfoReducer = (state, action) => {  
+    switch (action.type) {
+        case "setusername":
+            return {
+                ...state,
+                name: action.payload
+            }
+        case "setlastname":
+            return {
+                ...state,
+                lastname: action.payload
+            }
+        default :
+        return state;
+    }
+}
+
+const Editusername = React.memo(props=> {
+    console.log('hey')
+    return (
+        <input value={props.name}
+        onChange={e=> props.dispatch({
+            type:'setusername',
+            payload: e.target.value
+        })}
+        />
+    )
+})
+
+export const MyComponent=() => {
+    const [reducer, dispatch] = useReducer(userInfoReducer, {
+        name: 'John',
         lastname: 'Doe'
     })
-    setTimeout(() => {
-        console.log('------------------')
-        setUserInfo({
-            ...userInfo,
-            name:'John'
-        })
-    },2000)
     return (
-        <>
-            <DisplayUsername name={userInfo.name}/>
+        <>     
+            <h3>{reducer.name}{reducer.lastname}</h3>
+            <Editusername name={reducer.name} dispatch={dispatch}/>
             <input 
-            type="text"
-            value={userInfo.name}
-            onChange ={e=> setUserInfo({
-                ...userInfo,
-                name:e.target.value
+            type='text'
+            value={reducer.lastname}
+            onChange={e=> dispatch({
+                type:'setlastname',
+                payload:e.target.value
             })}
-            />
+            ></input>
         </>
     )
 }
-const DisplayUsername = memo((props) => {
-    console.log('只在name发生改变时才更新')
-    return <h3>{props.name}</h3>
-})
-
-// export const MyComponent = () => {
-//     const [filter, setfilter ] = React.useState('');
-//     const [userCollection, setUserCollection] = React.useState([]);
-//     React.useEffect(() => {
-//         fetch(
-//             `https://jsonplaceholder.typicode.com/users?name_like=${filter}`)
-//             .then(response => response.json())
-//             .then(json => setUserCollection(json));
-//     },[filter])
-//     return (
-//         // github api 
-//         // 用户的输入跟useEffect监听 update
-//         // 页面组件的列表输出
-//         <div>
-//             <input  value={filter} onChange = {e=> setfilter(e.target.value)}/>
-//             <ul>
-//                 {
-//                     userCollection.map((item,index) => (
-//                         <li key={index}>{item.name}</li>
-//                     ))
-//                 }
-//             </ul>
-//         </div>
-//     )
-// }
-

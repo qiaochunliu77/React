@@ -12,6 +12,7 @@
     useRef
     useMemo
     useReducer
+    useContext 当数据传输超过父子组件 就用context
 4. 分析react如何运行起来
     jsx
     root 根

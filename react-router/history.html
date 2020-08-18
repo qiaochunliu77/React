@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id='push'>push</button>
+    <script>
+        // react-router link 标签 =》 pushState 让url变化 页面局部刷新
+        // route  看地址栏的url和path属性是否匹配 匹配则显示
+        // BrouserRouter setState让页面刷新
+        
+        // pushState 向当前浏览器会话的历史堆栈中添加一个状态
+        const push = document.getElementById('push');
+        push.onclick = function () {
+            const state = { 'page_id': 1, 'user_id': 5 }
+            const title = ''
+            const url = '/push1'
+            history.pushState(state, title, url)
+            const stateObj = {a:1,n:2}
+            history.replaceState(stateObj, "", "bar2.html");
+        }
+        window.addEventListener('popstate', () => {
+            console.log('has change')
+        })
+    </script>
+</body>
+
+</html>

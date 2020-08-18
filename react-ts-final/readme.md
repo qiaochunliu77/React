@@ -2,3 +2,7 @@
 1. webpack 
 2.  .tsxconfig.json jsx-> react -> js
 
+yarn add webpack webpack-cli webpack-dev-server
+yarn add @babel/cli @babel/core @babel/polyfill @babel/preset-env
+yarn add babel-loader
+yarn add awesome-typescript-loader

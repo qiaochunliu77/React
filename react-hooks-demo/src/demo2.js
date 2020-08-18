@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+// useState2
 // export const MyComponent = props => {
 //     const [ userInfo , setUserInfo ] = useState({
 //         name:'john',
@@ -16,7 +16,7 @@ import React, { useState, useEffect } from 'react';
 //     )
 // }
 
-
+// useState1
 // export const MyComponent = props => {
 //     // JSX -> dom node
 //     const [myName, setmyName] = React.useState('John Doe')

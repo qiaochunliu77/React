@@ -27,5 +27,5 @@ export const FaceComponent = memo(props => {
     return (
         <div className={setSatisfactionClass(level)}></div>
     )
-}, isSameRange)
+}, isSameRange) 
 // memo 代替shouldComponentUpdate 减少重复渲染

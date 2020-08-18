@@ -1,53 +1,17 @@
-// 数据在hooks里面怎么走的
-// useState -> context轻量 | reducer重 | useReducer | mobx | 
-import React,{useReducer} from 'react';
+import React from 'react';
 
- const userInfoReducer = (state, action) => {  
-    switch (action.type) {
-        case "setusername":
-            return {
-                ...state,
-                name: action.payload
-            }
-        case "setlastname":
-            return {
-                ...state,
-                lastname: action.payload
-            }
-        default :
-        return state;
-    }
-}
-
-const Editusername = React.memo(props=> {
-    console.log('hey')
+export const MyComponent = props => {
+    // String Object Boolean
+    const [myName, setMyname] = React.useState('John Doe');
+    // let _useState = useState('John');
+    // let myName = _useState(0);
+    // let setName = _useState[1];
     return (
-        <input value={props.name}
-        onChange={e=> props.dispatch({
-            type:'setusername',
-            payload: e.target.value
-        })}
-        />
-    )
-})
-
-export const MyComponent=() => {
-    const [reducer, dispatch] = useReducer(userInfoReducer, {
-        name: 'John',
-        lastname: 'Doe'
-    })
-    return (
-        <>     
-            <h3>{reducer.name}{reducer.lastname}</h3>
-            <Editusername name={reducer.name} dispatch={dispatch}/>
-            <input 
-            type='text'
-            value={reducer.lastname}
-            onChange={e=> dispatch({
-                type:'setlastname',
-                payload:e.target.value
-            })}
-            ></input>
+        <>
+            <h4>{myName}</h4>
+            <input type='text' value={myName}
+            onchange={(e)=>{setMyname(e.target-.value)}}
+            />
         </>
     )
 }

@@ -14,7 +14,7 @@ function App() {
             <span>{satisfactionLevel}</span>
             <br />
             {/* 可以做优化 */}
-            <FaceComponent level={satisfactionLevel} />
+            <FaceComponent level={satisfactionLevel} /> 
         </div>
     )
 }

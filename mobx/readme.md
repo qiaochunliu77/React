@@ -1,4 +1,4 @@
-class setState -> 父子组件props  + props调用 -> context -> redux useReducer
+class setState -> 父子组件props  + props调用 -> context -> redux useReducer -> mobx 
 1. 当数据流动层次超过两层， 简单的useState传起来太麻烦了
 而redux reducer太重，如果action可以忽略useContext
 useState React.createContext结合 数据模板+实际操作

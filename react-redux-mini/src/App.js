@@ -1,26 +1,34 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {context,connect } from './react-redux.js'
+import Clock from './test';
 
-function App() {
+
+function App(props) {
+  // context ??
+  // 之前 connect -> mapStatetoProps 
+  // 现在 useSelector from reactredux
+  // const context1 = useContext(context)
+  console.log( props.count)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      哈哈哈哈哈哈
+      <Clock></Clock>
     </div>
   );
 }
-
-export default App;
+const mapDispatchToProps = () => {
+  return {}
+}
+const mapStateToProps = (state) => {
+  return {
+    count:state
+  }
+  // this.props.count
+}
+/*
+1. 拿到mapSatteToprops的返回值()
+2. 返回值放到 <App ...props/>
+*/
+export default connect(mapStateToProps, mapDispatchToProps)(App);

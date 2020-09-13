@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import { createStore } from 'redux'
-import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux';
+import {Provider,connect} from './react-redux.js'
 
 let action1 = {
   type: 'INCREMENT'
@@ -27,11 +26,8 @@ ReactDOM.render(
       <App />
     </Provider>
     {/* provider 提供数据生产者 Comsumer使用数据 消费者  ？？ */}
+    {/* react-redux的provider  是对react原生的provider的包装  */}
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

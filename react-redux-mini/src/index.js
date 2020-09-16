@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { createStore } from 'redux';
-import {Provider,connect} from './react-redux.js'
+import { Provider, connect } from './react-redux.js'
 
 let action1 = {
   type: 'INCREMENT'
@@ -12,6 +12,7 @@ let action2 = {
 }
 function reducer(state = 1, action) {
   if (action.type === 'INCREMENT') {
+    console.log('jia111')
     return state + 1
   } else if (action.type === 'DECREMENT') {
     return state - 1;

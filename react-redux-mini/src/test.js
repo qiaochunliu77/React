@@ -59,7 +59,7 @@
 // export default Clock;
 
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 // 逻辑
 let obj = {
   0: '星期日', 5: '星期五'
@@ -80,12 +80,54 @@ function useClock() {
   }, [date])
   return dateStr;
 }
-// ui
+/*
+function CLock() {
+  let count = 0 ;
+  setInterval(() => {
+    count+1
+  },1000)
+}
+function CLock() {
+  let count = 0 ;
+  setInterval(() => {
+    count+1
+  },1000)
+}
+ 为了提高性能，react将setState设置为分批次更新 
+  setState 在react库的控制下是异步的
+  其他情况(原生js控制)是同步的 
+
+ capture value
+ state每一次都会形成一个快照 
+ 每一次拿不到的新的count
+ 拿到的只是当时的count 前一次的不能保存 
+ 问题 永远拿不到新的state
+ 解决 :拿到上一次的值 
+ 1. setcount (回调函数) 每次都能拿到上一次的
+ 2. 把定时器清除
+ 3. ref.cuurent
+ 
+*/
 function Clock() {
+  const [count, setCount] = useState(0);
+  const ref = useRef();
+  ref.current = count;// 每次能在useEffect外部拿到最新的state
   const date = useClock();
+  console.log(count, '00000000000')
+  useEffect(() => {
+    let time = setInterval(() => {
+      // setCount(count + 1)
+      setCount(c => c+1)
+      // setCount(ref.current + 1)
+    }, 1000)
+    return () => {
+      clearInterval(time)
+    }
+  }, [])
   return (
     <div>
-      { date }
+      {count} <br />
+      {date} <br/>
     </div>
   )
 }
